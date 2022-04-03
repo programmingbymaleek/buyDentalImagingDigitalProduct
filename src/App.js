@@ -1,24 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import image from './imgs/milling.unit/primeMill.jpg';
+import OP3DandCeph_img from './imgs/panoramic/OP3DandCeph.jpg';
+import midmark_img from './imgs/intraoralxray/midmark-preva-dc-intraoral-x-ray-e54.jpg';
+import dental_accessories_img from './imgs/milling.unit/planmill50s.jpg';
+import dcitelescope_img from './imgs/delivery.unit/dci-series-4-delivery-unit-telescoping-DCI-tele.jpg';
 
-function App() {
+import Home from './routes/home.component/home.component';
+import { Route, Routes } from 'react-router-dom';
+import Navbar from './routes/navigation/navigation.component';
+import SignIn from './routes/signin.component/signin.component';
+import SignUp from './routes/signup.component/signup.component';
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Routes>
+      <Route path='/' element={<Navbar />}>
+        <Route index={true} element={<Home
+          primemill={image}
+          op3d={OP3DandCeph_img}
+          intraoral={midmark_img}
+          deleveryunit={dcitelescope_img}
+          accessories={dental_accessories_img}
+        />} />
+      </Route>
+      <Route path='sign-in' element={<SignIn />} />
+      <Route path='sign-up' element={<SignUp />} />
+
+    </Routes>
+
+
+
+
   );
 }
 
