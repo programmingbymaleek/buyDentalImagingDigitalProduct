@@ -15,7 +15,7 @@ import SignUp from './routes/signup.component/signup.component';
 const App = () => {
   return (
     <Routes>
-      <Route path='/' element={<Navbar />}>
+      <Route path='/buyDentalImagingDigitalProduct' element={<Navbar />}>
         <Route index={true} element={<Home
           primemill={image}
           op3d={OP3DandCeph_img}
