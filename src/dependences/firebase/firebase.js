@@ -1,0 +1,57 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore"
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBLVc3ZMuZPU9JkLDrF2xvYxp4zrjO7QzA",
+  authDomain: "buydentalpro.firebaseapp.com",
+  projectId: "buydentalpro",
+  storageBucket: "buydentalpro.appspot.com",
+  messagingSenderId: "863481167325",
+  appId: "1:863481167325:web:9d681333aba898b2d94a34"
+};
+//setting up out provider and its custom parameters.
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({
+  prompt: "select_account"
+})
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const signInwithGooglePopUp = () => {
+  return signInWithPopup(auth, googleProvider)
+}
+//creating records in datatbase..
+export const db = getFirestore();
+export const createUserDocFromAuth = async (userAuth) => {
+  const userDocumentRef = doc(db, 'users', userAuth.uid)
+  console.log(userDocumentRef)
+
+
+  //creating a snapshot to see if user already exist in db..
+
+  const userSnapShot = await getDoc(userDocumentRef);
+  console.log(userSnapShot);
+  if (!userSnapShot.exists()) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+    try {
+      const settingDocument = await setDoc(userDocumentRef, { displayName, email, createdAt })
+      console.log(displayName, email, createdAt)
+    } catch (error) {
+      alert('Error creating user', error.message)
+    }
+  }
+  return userDocumentRef;
+}
+
+
+
+
+
+
+
