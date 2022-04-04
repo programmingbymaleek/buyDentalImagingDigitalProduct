@@ -14,7 +14,6 @@ import SignUp from './routes/signup.component/signup.component';
 
 const App = () => {
   return (
-
     <Routes>
       <Route path='/' element={<Navbar />}>
         <Route index={true} element={<Home
@@ -24,10 +23,9 @@ const App = () => {
           deleveryunit={dcitelescope_img}
           accessories={dental_accessories_img}
         />} />
+        <Route path='sign-in' element={<SignIn />} />
+        <Route path='sign-up' element={<SignUp />} />
       </Route>
-      <Route path='sign-in' element={<SignIn />} />
-      <Route path='sign-up' element={<SignUp />} />
-
     </Routes>
 
 
