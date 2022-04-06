@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
+import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -22,18 +23,50 @@ googleProvider.setCustomParameters({
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+//allowing users to Sign in with google popup
 export const signInwithGooglePopUp = () => {
   return signInWithPopup(auth, googleProvider)
 }
+
+
+//creating an account with email and password..
+export const createNewUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) {
+    alert('Missing Fields Found')
+    return;
+  }
+  const responds = await createUserWithEmailAndPassword(auth, email, password)
+  return responds;
+}
+
+//signing with Email and password..
+export const SignInUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) {
+    alert('Missing Credentials')
+    return;
+  }
+  try {
+    const responds = await signInWithEmailAndPassword(auth, email, password)
+    console.log(responds);
+  } catch (error) {
+    if (error.code === 'auth/wrong-password') {
+      alert('Wrong Credentials')
+      return;
+    }
+    console.log(error)
+
+  }
+
+}
+
+
 //creating records in datatbase..
 export const db = getFirestore();
 export const createUserDocFromAuth = async (userAuth) => {
   const userDocumentRef = doc(db, 'users', userAuth.uid)
-  console.log(userDocumentRef)
-
+  console.log(userDocumentRef);
 
   //creating a snapshot to see if user already exist in db..
-
   const userSnapShot = await getDoc(userDocumentRef);
   console.log(userSnapShot);
   if (!userSnapShot.exists()) {

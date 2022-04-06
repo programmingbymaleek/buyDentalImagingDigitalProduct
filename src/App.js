@@ -8,7 +8,7 @@ import dcitelescope_img from './imgs/delivery.unit/dci-series-4-delivery-unit-te
 import Home from './routes/home.component/home.component';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './routes/navigation/navigation.component';
-import SignIn from './routes/signin.component/signin.component';
+import AuthenticatingUser from './components/authentication.component/authentication.component';
 import SignUp from './routes/signup.component/signup.component';
 
 
@@ -23,7 +23,7 @@ const App = () => {
           deleveryunit={dcitelescope_img}
           accessories={dental_accessories_img}
         />} />
-        <Route path='sign-in' element={<SignIn />} />
+        <Route path='sign-in' element={<AuthenticatingUser />} />
         <Route path='sign-up' element={<SignUp />} />
       </Route>
     </Routes>
