@@ -24,7 +24,6 @@ const App = () => {
           accessories={dental_accessories_img}
         />} />
         <Route path='sign-in' element={<AuthenticatingUser />} />
-        <Route path='sign-up' element={<SignUp />} />
       </Route>
     </Routes>
 
