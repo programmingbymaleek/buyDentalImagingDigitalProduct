@@ -44,14 +44,12 @@ export const createNewUserWithEmailAndPassword = async (email, password) => {
 
 //signing with Email and password..
 export const SignInUserWithEmailAndPassword = async (email, password) => {
-  const { setCurrentUser } = useContext(Usercontext)
   if (!email || !password) {
     alert('Missing Credentials')
     return;
   }
   try {
     const responds = await signInWithEmailAndPassword(auth, email, password)
-    setCurrentUser(responds)
   } catch (error) {
     if (error.code === 'auth/wrong-password') {
       alert('Wrong Credentials')

@@ -15,6 +15,7 @@ const loginWithGoogle = async () => {
 
 
 const SignIn = () => {
+  const { setCurrentUser } = useContext(Usercontext)
   const defaultFields = {
     email: '',
     password: '',
@@ -29,7 +30,7 @@ const SignIn = () => {
 
   const formOnSubmit = async (event) => {
     event.preventDefault();
-    SignInUserWithEmailAndPassword(email, password)
+    setCurrentUser(SignInUserWithEmailAndPassword(email, password))
   }
 
   return (<div className="sign-up-in-conatiner">

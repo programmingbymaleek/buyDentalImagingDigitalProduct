@@ -7,6 +7,7 @@ import { SignOut } from "../../dependences/firebase/firebase";
 
 const Navbar = () => {
   const { currentUser } = useContext(Usercontext)
+  console.log(currentUser)
   return (<Fragment>
     <div className="navigation">
       <Link className="logo" to='/buyDentalImagingDigitalProduct'> <h2>WilMatech Enterprise</h2></Link>
