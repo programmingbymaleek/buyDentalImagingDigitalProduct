@@ -1,8 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore"
+import { Usercontext } from "../../contextapi/context";
+import { useContext } from 'react'
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -41,13 +44,14 @@ export const createNewUserWithEmailAndPassword = async (email, password) => {
 
 //signing with Email and password..
 export const SignInUserWithEmailAndPassword = async (email, password) => {
+  const { setCurrentUser } = useContext(Usercontext)
   if (!email || !password) {
     alert('Missing Credentials')
     return;
   }
   try {
     const responds = await signInWithEmailAndPassword(auth, email, password)
-    console.log(responds);
+    setCurrentUser(responds)
   } catch (error) {
     if (error.code === 'auth/wrong-password') {
       alert('Wrong Credentials')
@@ -82,6 +86,13 @@ export const createUserDocFromAuth = async (userAuth) => {
   return userDocumentRef;
 }
 
+export const SignOut = async () => {
+  await signOut(auth);
+}
+
+export const onAuthStateChangeListener = (callBackFunc) => {
+  return onAuthStateChanged(auth, callBackFunc)
+}
 
 
 

@@ -1,8 +1,9 @@
 import InputFields from "../input.form.component/input.fields.component";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { SignInUserWithEmailAndPassword, signInwithGooglePopUp, createUserDocFromAuth } from "../../dependences/firebase/firebase";
 import CustomButton from "../../components/button.component/button.component";
 import '../signup.component/signup.styles.scss'
+import { Usercontext } from "../../contextapi/context";
 
 const loginWithGoogle = async () => {
   const responds = await signInwithGooglePopUp();
