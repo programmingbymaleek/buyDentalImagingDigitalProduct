@@ -7,15 +7,17 @@ import { SignOut } from "../../dependences/firebase/firebase";
 
 const Navbar = () => {
   const { currentUser } = useContext(Usercontext)
-  console.log(currentUser)
+  if (currentUser) {
+    console.log(currentUser.uid)
+  }
   return (<Fragment>
     <div className="navigation">
       <Link className="logo" to='/buyDentalImagingDigitalProduct'> <h2>WilMatech Enterprise</h2></Link>
       <div className="nav-links-container">
-        {currentUser ? (<Link className="nav-link" to='sign-in' onClick={SignOut}>SIGN-OUT</Link>) : (<Link className="nav-link" to='sign-in'>SIGN-IN</Link>)}
-        <Link className="nav-link" to='about'>
-          ABOUT
+        <Link className="nav-link" to='shop'>
+          Shop
         </Link>
+        {currentUser ? (<Link className="nav-link" to='sign-in' onClick={SignOut}>SIGN-OUT</Link>) : (<Link className="nav-link" to='sign-in'>SIGN-IN</Link>)}
       </div>
     </div>
     <Outlet />

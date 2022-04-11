@@ -10,6 +10,7 @@ import { Route, Routes } from 'react-router-dom';
 import Navbar from './routes/navigation/navigation.component';
 import AuthenticatingUser from './components/authentication.component/authentication.component';
 import SignUp from './routes/signup.component/signup.component';
+import Shop from './routes/shop/shop.component';
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
           accessories={dental_accessories_img}
         />} />
         <Route path='sign-in' element={<AuthenticatingUser />} />
+        <Route path='shop' element={<Shop />} />
       </Route>
     </Routes>
 

@@ -1,0 +1,14 @@
+import { createContext, useState } from 'react'
+import PRODUCTS from '../../shop_data_json_file/shop_data_file.json'
+
+
+export const ProductContext = createContext({
+  products: [],
+})
+
+export const ProductProvider = ({ children }) => {
+  const [products, setProducts] = useState(PRODUCTS)
+  const value = { products }
+
+  return <ProductContext.Provider value={value}>{children}</ProductContext.Provider>
+}

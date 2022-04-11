@@ -84,6 +84,7 @@ export const createUserDocFromAuth = async (userAuth) => {
   return userDocumentRef;
 }
 
+//creating signing out functionality.. 
 export const SignOut = async () => {
   await signOut(auth);
 }

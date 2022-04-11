@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Planmeca Viso® G5",
+    "imageUrl": "https://www.planmeca.com/globalassets/planmeca-modernization/imaging/3d-imaging/compare-our-3d-units/planmeca-viso-3d-imaging.jpg",
+    "price": null
+  },
+  {
+    "id": 2,
+    "name": "Planmeca Viso® G7",
+    "imageUrl": "https://www.planmeca.com/globalassets/planmeca-modernization/imaging/3d-imaging/compare-our-3d-units/planmeca-viso-3d-imaging.jpg",
+    "price": null
+  },
+  {
+    "id": 3,
+    "name": "Planmeca ProMax® 3D Classic",
+    "imageUrl": "https://www.planmeca.com/globalassets/planmeca-modernization/imaging/3d-imaging/compare-our-3d-units/planmeca-promax-3d-classic-imaging-unit.jpg",
+    "price": null
+  },
+  {
+    "id": 4,
+    "name": "Planmeca ProMax® 3D Plus",
+    "imageUrl": "https://www.planmeca.com/globalassets/planmeca-modernization/imaging/3d-imaging/compare-our-3d-units/planmeca-promax-3d-plus-imaging-unit.jpg",
+    "price": null
+  },
+  {
+    "id": 5,
+    "name": "Planmeca ProMax® 3D Mid",
+    "imageUrl": "https://www.planmeca.com/globalassets/planmeca-modernization/imaging/3d-imaging/compare-our-3d-units/planmeca-promax-3d-mid-imaging-unit.jpg",
+    "price": null
+  },
+  {
+    "id": 6,
+    "name": "Planmeca ProMax® 3D s",
+    "imageUrl": "https://www.planmeca.com/globalassets/planmeca-modernization/imaging/3d-imaging/compare-our-3d-units/planmeca-promax-3d-s-imaging-unit.jpg",
+    "price": null
+  },
+  {
+    "id": 7,
+    "name": "Planmeca ProMax® 3D Mid",
+    "imageUrl": "https://www.planmeca.com/globalassets/planmeca-modernization/imaging/3d-imaging/compare-our-3d-units/planmeca-promax-3d-mid-imaging-unit.jpg",
+    "price": null
+  },
+  {
+    "id": 8,
+    "name": "DEXIS™ OP 3D™ Pro",
+    "imageUrl": "https://dexis.com/sites/default/files/styles/optimized/public/Pro_NEW-header_0.png?itok=s6he8Ca8",
+    "price": null
+  },
+  {
+    "id": 9,
+    "name": "DEXIS™ OP 3D™",
+    "imageUrl": "https://dexis.com/sites/default/files/styles/optimized/public/OP3D_header.png?itok=xRRgF5q8",
+    "price": null
+  },
+  {
+    "id": 10,
+    "name": "i-CAT™ FLX V-Series™",
+    "imageUrl": "https://dexis.com/sites/default/files/styles/optimized/public/i-CAT_DEXIS_Product_Header_0.png?itok=B1JdA16z",
+    "price": null
+  },
+  {
+    "id": 11,
+    "name": "DEXIS™ OP 2D™",
+    "imageUrl": "https://dexis.com/sites/default/files/styles/optimized/public/OP2D_DEXIS_Product_Header.png?itok=g8_5PKcB",
+    "price": null
+  },
+  {
+    "id": 12,
+    "name": "Orthophos S",
+    "imageUrl": "https://www.dentsplysironasupport.com/en-us/dealer-section/imaging/three-d-imaging/orthophos-s/_jcr_content/par/productsummary/slider/items/imageslideritem/image.img.1200.HIGH.jpeg/1551891015527.jpeg",
+    "price": null
+  },
+  {
+    "id": 13,
+    "name": "Orthophos SL",
+    "imageUrl": "https://www.dentsplysironasupport.com/en-us/dealer-section/imaging/three-d-imaging/orthophos-sl/_jcr_content/par/productsummary/slider/items/imageslideritem0/image.img.1200.HIGH.jpg/1521124870966.jpg",
+    "price": null
+  },
+  {
+    "id": 14,
+    "name": "Orthophos XG 3D ready",
+    "imageUrl": "https://www.dentsplysironasupport.com/en-us/dealer-section/imaging/three-d-imaging/orthophos-xg-3d/_jcr_content/par/productsummary/slider/items/imageslideritem/image.img.1200.HIGH.jpg/1471351348834.jpg",
+    "price": null
+  },
+  {
+    "id": 15,
+    "name": "Orthophos E",
+    "imageUrl": "https://www.dentsplysironasupport.com/en-us/dealer-section/imaging/two-d-imaging/orthophos-e/_jcr_content/par/productsummary/slider/items/imageslideritem/image.img.1200.HIGH.jpeg/1551891015371.jpeg",
+    "price": null
+  },
+  {
+    "id": 16,
+    "name": "Orthophos XG 5",
+    "imageUrl": "https://www.dentsplysironasupport.com/en-us/dealer-section/imaging/two-d-imaging/orthophos-e/_jcr_content/par/productsummary/slider/items/imageslideritem/image.img.1200.HIGH.jpeg/1551891015371.jpeg",
+    "price": null
+  },
+  {
+    "id": 17,
+    "name": "Axeos",
+    "imageUrl": "https://www.dentsplysironasupport.com/en-us/dealer-section/imaging/three-d-imaging/orthophos-sl/_jcr_content/par/productsummary/slider/items/imageslideritem0/image.img.1200.HIGH.jpg/1521124870966.jpg",
+    "price": null
+  },
+  {
+    "id": 18,
+    "name": "Galileos:",
+    "imageUrl": "https://www.dentsplysironasupport.com/en-us/dealer-section/imaging/three-d-imaging/galileos/_jcr_content/par/productsummary/slider/items/imageslideritem/image.img.1200.HIGH.jpg/1489136522145.jpg",
+    "price": null
+  }
+]
