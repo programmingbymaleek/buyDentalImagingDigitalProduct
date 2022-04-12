@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/buyDentalImagingDigitalProduct/static/css/main.49cb90e9.css",
-    "main.js": "/buyDentalImagingDigitalProduct/static/js/main.253117fe.js",
+    "main.css": "/buyDentalImagingDigitalProduct/static/css/main.95b97f73.css",
+    "main.js": "/buyDentalImagingDigitalProduct/static/js/main.65570e54.js",
     "static/js/787.0b32e54a.chunk.js": "/buyDentalImagingDigitalProduct/static/js/787.0b32e54a.chunk.js",
     "static/media/primeMill.jpg": "/buyDentalImagingDigitalProduct/static/media/primeMill.ffc66a2e36cfb4e5309e.jpg",
     "static/media/OP3DandCeph.jpg": "/buyDentalImagingDigitalProduct/static/media/OP3DandCeph.7dbe1545a348388e4bb2.jpg",
     "static/media/dci-series-4-delivery-unit-telescoping-DCI-tele.jpg": "/buyDentalImagingDigitalProduct/static/media/dci-series-4-delivery-unit-telescoping-DCI-tele.839303733e7cadefd3af.jpg",
     "static/media/planmill50s.jpg": "/buyDentalImagingDigitalProduct/static/media/planmill50s.6b4d0e3aa0e9539feb5b.jpg",
     "static/media/midmark-preva-dc-intraoral-x-ray-e54.jpg": "/buyDentalImagingDigitalProduct/static/media/midmark-preva-dc-intraoral-x-ray-e54.a9691f9b5e088d488503.jpg",
+    "static/media/shopping_icon.svg": "/buyDentalImagingDigitalProduct/static/media/shopping_icon.7058da4fb08cbfeba612d03daaab8d08.svg",
     "index.html": "/buyDentalImagingDigitalProduct/index.html",
-    "main.49cb90e9.css.map": "/buyDentalImagingDigitalProduct/static/css/main.49cb90e9.css.map",
-    "main.253117fe.js.map": "/buyDentalImagingDigitalProduct/static/js/main.253117fe.js.map",
+    "main.95b97f73.css.map": "/buyDentalImagingDigitalProduct/static/css/main.95b97f73.css.map",
+    "main.65570e54.js.map": "/buyDentalImagingDigitalProduct/static/js/main.65570e54.js.map",
     "787.0b32e54a.chunk.js.map": "/buyDentalImagingDigitalProduct/static/js/787.0b32e54a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.49cb90e9.css",
-    "static/js/main.253117fe.js"
+    "static/css/main.95b97f73.css",
+    "static/js/main.65570e54.js"
   ]
 }
