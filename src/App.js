@@ -9,7 +9,6 @@ import Home from './routes/home.component/home.component';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './routes/navigation/navigation.component';
 import AuthenticatingUser from './components/authentication.component/authentication.component';
-import SignUp from './routes/signup.component/signup.component';
 import Shop from './routes/shop/shop.component';
 
 

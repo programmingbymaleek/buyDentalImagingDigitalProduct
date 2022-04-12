@@ -4,8 +4,13 @@ import { useContext } from 'react'
 import { Usercontext } from "../../contextapi/context";
 import './navigation.styles.scss';
 import { SignOut } from "../../dependences/firebase/firebase";
+import CartIcon from "../../components/cart_icon_component/cart_icon";
+import CartDropDown from "../../components/cart_drop_down/cart_drop_down";
+import { CartUserContext } from "../../context.apis/cart_context/cart_context";
+
 
 const Navbar = () => {
+  const { isCartOpen } = useContext(CartUserContext)
   const { currentUser } = useContext(Usercontext)
   if (currentUser) {
     console.log(currentUser.uid)
@@ -15,10 +20,13 @@ const Navbar = () => {
       <Link className="logo" to='/buyDentalImagingDigitalProduct'> <h2>WilMatech Enterprise</h2></Link>
       <div className="nav-links-container">
         <Link className="nav-link" to='shop'>
-          Shop
+          SHOP
         </Link>
         {currentUser ? (<Link className="nav-link" to='sign-in' onClick={SignOut}>SIGN-OUT</Link>) : (<Link className="nav-link" to='sign-in'>SIGN-IN</Link>)}
+        <CartIcon />
       </div>
+      {isCartOpen && (<CartDropDown />)}
+
     </div>
     <Outlet />
   </Fragment>)

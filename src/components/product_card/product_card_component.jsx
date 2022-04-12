@@ -15,7 +15,7 @@ const ProductCardDirectory = ({ product }) => {
       </span>
     </div>
     <CustomButton buttonType={'inverted'} label="Add to Cart" />
-  </div>)
+  </div>);
 }
 export default ProductCardDirectory
 
