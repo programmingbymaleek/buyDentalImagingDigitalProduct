@@ -5,6 +5,7 @@
   height: 350px;
   align-items: center;
   position: relative;
+  flex: 1;
 
   img {
     width: 100%;
@@ -42,6 +43,7 @@
     .name {
       width: 90%;
       margin-bottom: 15px;
+      text-align: center;
     }
 
     .price {

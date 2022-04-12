@@ -1,12 +1,14 @@
 .products-container{
-  // display: grid;
-  // grid-template-columns: repeat(4,1fr);
-  // column-gap: 10px;
-  // row-gap:50px
   display: flex;
   gap:2em; 
   flex-wrap: wrap;
-  flex: 1;
   justify-content: space-evenly;
 
+
+}
+.search_box_conatiner{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
 }

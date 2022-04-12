@@ -1,0 +1,21 @@
+.search_input_field{
+  width:15em; 
+  height: 2.5em;
+  border-radius: 1em;
+  border-color: #A0BBDD;
+  font-size: larger;
+  border: none;
+  background-color: #BBBEBF;
+  outline: none;
+  padding: 1em;
+  line-height: 2em;
+  
+}
+.search_input_field:hover{
+  background-color: #69778B;
+  color: white;
+}
+
+.search_input_field:hover::placeholder{
+  color: white;
+}
