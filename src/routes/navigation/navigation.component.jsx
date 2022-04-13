@@ -26,7 +26,6 @@ const Navbar = () => {
         <CartIcon />
       </div>
       {isCartOpen && (<CartDropDown />)}
-
     </div>
     <Outlet />
   </Fragment>)

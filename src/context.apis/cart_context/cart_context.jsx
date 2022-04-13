@@ -18,11 +18,30 @@ const addCartItem = (cartItems, addedMedicalProduct) => {
   return [...cartItems, { ...addedMedicalProduct, quantity: 1 }]
 }
 
+const removeCartItem = (cartItems, addedMedicalProduct) => {
+
+  //check to see if item is already in cart..
+  const existingCartItem = cartItems.find((cartitem) => {
+    return cartitem.id === addedMedicalProduct.id
+  })
+  //if already exist, increment quantity
+  if (existingCartItem) {
+    return cartItems.map((cartItem) => {
+      return (cartItem.id === addedMedicalProduct.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem)
+    })
+  }
+
+  //else.. Just add item to cart 
+  return [...cartItems, { ...addedMedicalProduct, quantity: 1 }]
+}
+
 export const CartUserContext = createContext({
   isCartOpen: false,
   toggler: () => { },
   cartItems: [],
   addItemTocart: () => { },
+  removeItemFromCart: () => { },
+
   cartCount: 0
 })
 
@@ -38,6 +57,10 @@ export const CartUserProviderContext = ({ children }) => {
     setCartItems(addCartItem(cartItems, addedMedicalProduct))
   }
 
+  const removeItemFromCart = (addedMedicalProduct) => {
+    setCartItems(removeCartItem(cartItems, addedMedicalProduct))
+  }
+
   useEffect(() => {
     const newCartCount = cartItems.reduce(
       (total, cartItem) => total + cartItem.quantity, 0
@@ -45,7 +68,7 @@ export const CartUserProviderContext = ({ children }) => {
     setcartCount(newCartCount)
   }, [cartItems])
 
-  const value = { isCartOpen, setIsCartOpen, toggler, addItemTocart, cartItems, cartCount }
+  const value = { isCartOpen, setIsCartOpen, toggler, addItemTocart, cartItems, cartCount, removeItemFromCart }
 
 
 
