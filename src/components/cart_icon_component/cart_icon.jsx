@@ -5,11 +5,11 @@ import { CartUserContext } from "../../context.apis/cart_context/cart_context";
 
 
 const CartIcon = () => {
-  const { toggler } = useContext(CartUserContext)
+  const { toggler, cartCount } = useContext(CartUserContext)
 
   return (<div className="cart-icon-container">
     <ShoppingIcon className="shopping-icon" onClick={toggler} />
-    <span className="item-count">0</span>
+    <span className="item-count">{cartCount}</span>
   </div>)
 
 }

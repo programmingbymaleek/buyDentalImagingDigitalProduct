@@ -7,17 +7,12 @@ const Shop = () => {
   const { products } = useContext(ProductContext)
   const [searchField, setsearchField] = useState('')
   const [filteredDevices, setFilteredDevices] = useState(products)
-  console.log(filteredDevices)
-
-
-
   const deviceSearch = (e) => {
     setsearchField(`${e.target.value.toLocaleLowerCase()}`)
   }
 
   useEffect(() => {
     const newfilteredDevices = products.filter((product) => {
-      console.log(product.name.toLocaleLowerCase())
       return (product.name.toLocaleLowerCase().includes(searchField))
     })
     setFilteredDevices(newfilteredDevices)

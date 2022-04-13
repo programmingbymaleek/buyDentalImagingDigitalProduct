@@ -1,17 +1,51 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+
+
+const addCartItem = (cartItems, addedMedicalProduct) => {
+
+  //check to see if item is already in cart..
+  const existingCartItem = cartItems.find((cartitem) => {
+    return cartitem.id === addedMedicalProduct.id
+  })
+  //if already exist, increment quantity
+  if (existingCartItem) {
+    return cartItems.map((cartItem) => {
+      return (cartItem.id === addedMedicalProduct.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem)
+    })
+  }
+
+  //else.. Just add item to cart 
+  return [...cartItems, { ...addedMedicalProduct, quantity: 1 }]
+}
 
 export const CartUserContext = createContext({
   isCartOpen: false,
-  toggler: () => { }
+  toggler: () => { },
+  cartItems: [],
+  addItemTocart: () => { },
+  cartCount: 0
 })
 
 export const CartUserProviderContext = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false)
+  const [cartItems, setCartItems] = useState([])
+  const [cartCount, setcartCount] = useState(0);
   const toggler = () => {
     setIsCartOpen(!isCartOpen)
   }
 
-  const value = { isCartOpen, setIsCartOpen, toggler }
+  const addItemTocart = (addedMedicalProduct) => {
+    setCartItems(addCartItem(cartItems, addedMedicalProduct))
+  }
+
+  useEffect(() => {
+    const newCartCount = cartItems.reduce(
+      (total, cartItem) => total + cartItem.quantity, 0
+    );
+    setcartCount(newCartCount)
+  }, [cartItems])
+
+  const value = { isCartOpen, setIsCartOpen, toggler, addItemTocart, cartItems, cartCount }
 
 
 
