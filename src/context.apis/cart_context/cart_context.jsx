@@ -18,22 +18,34 @@ const addCartItem = (cartItems, addedMedicalProduct) => {
   return [...cartItems, { ...addedMedicalProduct, quantity: 1 }]
 }
 
-const removeCartItem = (cartItems, addedMedicalProduct) => {
+
+
+const removeCartItem = (cartItems, removedMedicalProduct) => {
 
   //check to see if item is already in cart..
   const existingCartItem = cartItems.find((cartitem) => {
-    return cartitem.id === addedMedicalProduct.id
+    return cartitem.id === removedMedicalProduct.id
   })
   //if already exist, increment quantity
-  if (existingCartItem) {
-    return cartItems.map((cartItem) => {
-      return (cartItem.id === addedMedicalProduct.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem)
+  if (existingCartItem.quantity === 1) {
+    return cartItems.filter((cartItem) => {
+      console.log(`${cartItem.quantity}   =====   ${removedMedicalProduct.quantity}`)
+      return (cartItem.id !== removedMedicalProduct.id)
     })
   }
+  //else.. Just add item to cart
 
-  //else.. Just add item to cart 
-  return [...cartItems, { ...addedMedicalProduct, quantity: 1 }]
+  return cartItems.map((cartItem) => {
+    return (cartItem.id === removedMedicalProduct.id ?
+      { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem)
+  });
+
 }
+
+
+
+
+
 
 export const CartUserContext = createContext({
   isCartOpen: false,
@@ -41,7 +53,6 @@ export const CartUserContext = createContext({
   cartItems: [],
   addItemTocart: () => { },
   removeItemFromCart: () => { },
-
   cartCount: 0
 })
 
@@ -57,9 +68,11 @@ export const CartUserProviderContext = ({ children }) => {
     setCartItems(addCartItem(cartItems, addedMedicalProduct))
   }
 
-  const removeItemFromCart = (addedMedicalProduct) => {
-    setCartItems(removeCartItem(cartItems, addedMedicalProduct))
+  const removeItemFromCart = (removedMedicalProduct) => {
+    setCartItems(removeCartItem(cartItems, removedMedicalProduct))
   }
+
+
 
   useEffect(() => {
     const newCartCount = cartItems.reduce(
@@ -69,11 +82,6 @@ export const CartUserProviderContext = ({ children }) => {
   }, [cartItems])
 
   const value = { isCartOpen, setIsCartOpen, toggler, addItemTocart, cartItems, cartCount, removeItemFromCart }
-
-
-
-
-
 
   return (<CartUserContext.Provider value={value}>{children}</CartUserContext.Provider>)
 }

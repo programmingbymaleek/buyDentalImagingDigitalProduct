@@ -5,8 +5,8 @@ import { Usercontext } from "../../contextapi/context";
 import './navigation.styles.scss';
 import { SignOut } from "../../dependences/firebase/firebase";
 import CartIcon from "../../components/cart_icon_component/cart_icon";
-import CartDropDown from "../../components/cart_drop_down/cart_drop_down";
 import { CartUserContext } from "../../context.apis/cart_context/cart_context";
+import { MemoizedDropDown } from "../../components/cart_drop_down/cart_drop_down";
 
 
 const Navbar = () => {
@@ -25,7 +25,7 @@ const Navbar = () => {
         {currentUser ? (<Link className="nav-link" to='sign-in' onClick={SignOut}>SIGN-OUT</Link>) : (<Link className="nav-link" to='sign-in'>SIGN-IN</Link>)}
         <CartIcon />
       </div>
-      {isCartOpen && (<CartDropDown />)}
+      {isCartOpen && (<MemoizedDropDown />)}
     </div>
     <Outlet />
   </Fragment>)

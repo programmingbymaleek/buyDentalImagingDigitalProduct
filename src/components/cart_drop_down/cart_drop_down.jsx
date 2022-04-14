@@ -1,13 +1,14 @@
 import CustomButton from "../button.component/button.component"
 import CartItems from "../cart_items/cart_items.component"
-import { useContext } from "react"
+import React, { useContext } from "react"
 import { CartUserContext } from "../../context.apis/cart_context/cart_context"
 import './cart_drop_down.styles.scss'
 import { Link } from "react-router-dom"
 
 
-const CartDropDown = () => {
+export const CartDropDown = () => {
   const { cartItems } = useContext(CartUserContext)
+  console.log(cartItems)
   return (
     <div className="cart-dropdown-container">
       <div className="cart-items">
@@ -21,4 +22,4 @@ const CartDropDown = () => {
     </div>)
 }
 
-export default CartDropDown; 
+export const MemoizedDropDown = React.memo(CartDropDown); 

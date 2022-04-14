@@ -12,23 +12,20 @@ const CheckOut = () => {
 
   return (<div>
     {cartItems.map((cartItem) => {
-      const { ImageUrl, price, quantity, name, id } = cartItem
-      const totalCost = quantity * price;
+      let { ImageUrl, price, quantity, name, id } = cartItem
+      let totalCost = quantity * price;
       return (<div key={id}>
-        {quantity >= 1 ? (
-          <div>
-            <span>{name}   </span>
-            <button type='button' onClick={() => {
-              removeItemFromCart(cartItem)
-            }}>decrease quanity</button>
-            <span>   {quantity}  </span>
-            <button type='button' onClick={() => {
-              addItemTocart(cartItem)
-            }}>increase quanity</button>
-            <span>    {totalCost}   </span>
-
-          </div>
-        ) : (<div>{null}</div>)}
+        <div>
+          <span>{name}   </span>
+          <button type='button' onClick={() => {
+            removeItemFromCart(cartItem)
+          }}>decrease quanity</button>
+          <span>   {quantity}  </span>
+          <button type='button' onClick={() => {
+            addItemTocart(cartItem)
+          }}>increase quanity</button>
+          <span>{totalCost}   </span>
+        </div>
       </div>)
 
 
