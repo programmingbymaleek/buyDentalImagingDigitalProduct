@@ -12,9 +12,11 @@ export const CartDropDown = () => {
   return (
     <div className="cart-dropdown-container">
       <div className="cart-items">
-        {cartItems.map((item) => {
+        {cartItems.length > 0 ? cartItems.map((item) => {
           return (<CartItems key={item.id} catItems={item} />)
-        })}
+        }) : (<div>
+          <div>No item in your cart</div>
+        </div>)}
       </div>
       <Link to="check-out">
         <CustomButton buttonname={'check out'} label="CHECK OUT" />

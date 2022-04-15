@@ -1,35 +1,39 @@
 import { useContext } from 'react'
 import { CartUserContext } from '../../context.apis/cart_context/cart_context';
+import Check_Out_Item from '../check_out_item_component/check_out_item.component';
+import './checkout.styles.scss'
 
 const CheckOut = () => {
-  const { cartItems, addItemTocart, removeItemFromCart } = useContext(CartUserContext)
-
-  //decrement the quanity, update price and update quantity
-  //increment the quatity, update price and updat quantity 
+  const { cartItems, addItemTocart, removeItemFromCart, deletItem } = useContext(CartUserContext)
 
 
+  return (<div className='checkout-container'>
+    <div className='checkout-header'>
+      <div className='header-block'>
+        <span>Product</span>
+      </div>
+      <div className='header-block'>Description</div>
+      <div className='header-block'>Quantity</div>
+      <div className='header-block'>Price</div>
+      <div className='header-block'>Remove</div>
+    </div>
 
 
-  return (<div>
-    {cartItems.map((cartItem) => {
-      let { ImageUrl, price, quantity, name, id } = cartItem
-      let totalCost = quantity * price;
-      return (<div key={id}>
-        <div>
-          <span>{name}   </span>
-          <button type='button' onClick={() => {
-            removeItemFromCart(cartItem)
-          }}>decrease quanity</button>
-          <span>   {quantity}  </span>
-          <button type='button' onClick={() => {
-            addItemTocart(cartItem)
-          }}>increase quanity</button>
-          <span>{totalCost}   </span>
-        </div>
-      </div>)
+    {cartItems.length > 0 ? (cartItems.map((cartItem) => {
+      const incrementItem = () => {
+        addItemTocart(cartItem)
+      }
+      const decrementItem = () => {
+        removeItemFromCart(cartItem)
+      }
 
+      return <Check_Out_Item key={cartItem.id} cartItem={cartItem}
+        incrementItem={incrementItem} decrementItem={decrementItem} deletItem={deletItem} />
 
-    })}
+    })) : ((<div>
+      <div>No item to check out</div>
+    </div>))}
+    <span className='total'> Total:0</span>
   </div>)
 }
 
@@ -37,19 +41,3 @@ export default CheckOut;
 
 
 
-
-// const { ImageUrl, price, quantity, name, id } = cartItem
-// const totalCost = quantity * price
-// return (
-//   <div key={id}>
-//     <span>{name}   </span>
-//     <button type='button' onClick={() => {
-//       removeItemFromCart(cartItem)
-//     }}>decrease quanity</button>
-//     <span>   {quantity}  </span>
-//     <button type='button' onClick={() => {
-//       addItemTocart(cartItem)
-//     }}>increase quanity</button>
-//     <span>    {totalCost}   </span>
-
-//   </div>)

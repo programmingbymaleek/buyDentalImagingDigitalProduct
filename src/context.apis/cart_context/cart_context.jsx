@@ -29,8 +29,7 @@ const removeCartItem = (cartItems, removedMedicalProduct) => {
   //if already exist, increment quantity
   if (existingCartItem.quantity === 1) {
     return cartItems.filter((cartItem) => {
-      console.log(`${cartItem.quantity}   =====   ${removedMedicalProduct.quantity}`)
-      return (cartItem.id !== removedMedicalProduct.id)
+      return cartItem.id !== removedMedicalProduct.id
     })
   }
   //else.. Just add item to cart
@@ -39,6 +38,18 @@ const removeCartItem = (cartItems, removedMedicalProduct) => {
     return (cartItem.id === removedMedicalProduct.id ?
       { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem)
   });
+
+}
+
+const deleteCartItem = (cartItems, itemToDelete) => {
+  const existing = cartItems.find((cartItem) => {
+    return cartItem.id === itemToDelete
+  })
+  if (existing) {
+    return cartItems.filter((cartItem) => {
+      return cartItem.id != itemToDelete.id
+    })
+  }
 
 }
 
@@ -53,7 +64,8 @@ export const CartUserContext = createContext({
   cartItems: [],
   addItemTocart: () => { },
   removeItemFromCart: () => { },
-  cartCount: 0
+  cartCount: 0,
+  deletItem: () => { }
 })
 
 export const CartUserProviderContext = ({ children }) => {
@@ -71,6 +83,9 @@ export const CartUserProviderContext = ({ children }) => {
   const removeItemFromCart = (removedMedicalProduct) => {
     setCartItems(removeCartItem(cartItems, removedMedicalProduct))
   }
+  const deletItem = (itemToDelete) => {
+    setCartItems(deleteCartItem(cartItems, itemToDelete))
+  }
 
 
 
@@ -81,7 +96,7 @@ export const CartUserProviderContext = ({ children }) => {
     setcartCount(newCartCount)
   }, [cartItems])
 
-  const value = { isCartOpen, setIsCartOpen, toggler, addItemTocart, cartItems, cartCount, removeItemFromCart }
+  const value = { isCartOpen, setIsCartOpen, toggler, addItemTocart, cartItems, cartCount, removeItemFromCart, deletItem }
 
   return (<CartUserContext.Provider value={value}>{children}</CartUserContext.Provider>)
 }
