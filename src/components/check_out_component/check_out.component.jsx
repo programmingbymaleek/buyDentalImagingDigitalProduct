@@ -1,10 +1,10 @@
 import { useContext } from 'react'
 import { CartUserContext } from '../../context.apis/cart_context/cart_context';
-import Check_Out_Item from '../check_out_item_component/check_out_item.component';
+import CheckOutItem from '../check_out_item_component/check_out_item.component';
 import './checkout.styles.scss'
 
 const CheckOut = () => {
-  const { cartItems, addItemTocart, removeItemFromCart, deletItem } = useContext(CartUserContext)
+  const { cartItems, addItemTocart, removeItemFromCart, deletItem, totalItem } = useContext(CartUserContext)
 
 
   return (<div className='checkout-container'>
@@ -26,14 +26,17 @@ const CheckOut = () => {
       const decrementItem = () => {
         removeItemFromCart(cartItem)
       }
+      const itemTodelete = () => {
+        deletItem(cartItem)
+      }
 
-      return <Check_Out_Item key={cartItem.id} cartItem={cartItem}
-        incrementItem={incrementItem} decrementItem={decrementItem} deletItem={deletItem} />
+      return <CheckOutItem key={cartItem.id} cartItem={cartItem}
+        incrementItem={incrementItem} decrementItem={decrementItem} deletItem={itemTodelete} />
 
     })) : ((<div>
       <div>No item to check out</div>
     </div>))}
-    <span className='total'> Total:0</span>
+    <span className='total'>Total: {totalItem}</span>
   </div>)
 }
 
