@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/buyDentalImagingDigitalProduct/static/css/main.2236b356.css",
-    "main.js": "/buyDentalImagingDigitalProduct/static/js/main.4ae40069.js",
+    "main.css": "/buyDentalImagingDigitalProduct/static/css/main.2877c1e9.css",
+    "main.js": "/buyDentalImagingDigitalProduct/static/js/main.786c5b4a.js",
     "static/js/787.0b32e54a.chunk.js": "/buyDentalImagingDigitalProduct/static/js/787.0b32e54a.chunk.js",
     "static/media/primeMill.jpg": "/buyDentalImagingDigitalProduct/static/media/primeMill.ffc66a2e36cfb4e5309e.jpg",
     "static/media/OP3DandCeph.jpg": "/buyDentalImagingDigitalProduct/static/media/OP3DandCeph.7dbe1545a348388e4bb2.jpg",
@@ -10,12 +10,12 @@
     "static/media/midmark-preva-dc-intraoral-x-ray-e54.jpg": "/buyDentalImagingDigitalProduct/static/media/midmark-preva-dc-intraoral-x-ray-e54.a9691f9b5e088d488503.jpg",
     "static/media/shopping_icon.svg": "/buyDentalImagingDigitalProduct/static/media/shopping_icon.7058da4fb08cbfeba612d03daaab8d08.svg",
     "index.html": "/buyDentalImagingDigitalProduct/index.html",
-    "main.2236b356.css.map": "/buyDentalImagingDigitalProduct/static/css/main.2236b356.css.map",
-    "main.4ae40069.js.map": "/buyDentalImagingDigitalProduct/static/js/main.4ae40069.js.map",
+    "main.2877c1e9.css.map": "/buyDentalImagingDigitalProduct/static/css/main.2877c1e9.css.map",
+    "main.786c5b4a.js.map": "/buyDentalImagingDigitalProduct/static/js/main.786c5b4a.js.map",
     "787.0b32e54a.chunk.js.map": "/buyDentalImagingDigitalProduct/static/js/787.0b32e54a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2236b356.css",
-    "static/js/main.4ae40069.js"
+    "static/css/main.2877c1e9.css",
+    "static/js/main.786c5b4a.js"
   ]
 }
