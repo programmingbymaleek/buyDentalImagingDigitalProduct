@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { getFirestore, doc, setDoc, getDoc, collection, writeBatch, query, getDocs } from "firebase/firestore"
@@ -101,6 +102,21 @@ export const uploadDataCollections = async (dataCollectionKey, title, ObjectsToA
   })
   await batchTransaction.commit();
   console.log('Done')
+}
+
+
+//fetching data from firebase..
+
+export const getDataAndCollectionFromFireBase = async () => {
+  const ReferenceToCollectionData = collection(db, 'species');
+  const querY = query(ReferenceToCollectionData);
+  const querYSnapshot = await getDocs(querY);
+  const MappedCategory = querYSnapshot.docs.reduce((accumulator, documentSnapShot) => {
+    const { EquipmentType, items } = documentSnapShot.data();
+    accumulator[EquipmentType.toLowerCase] = items;
+    console.log(accumulator)
+  }, {})
+  return MappedCategory;
 }
 
 
