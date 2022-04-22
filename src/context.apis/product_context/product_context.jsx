@@ -11,18 +11,18 @@ export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([])
   const value = { products }
 
-  // useEffect(() => {
-  //   uploadDataCollections('species', 'EquipmentType', DentalProduct)
-  // }, [])
-
-  const getDataAndCollectionFromFireBasE = async () => {
-    const MappedCategory = await getDataAndCollectionFromFireBase();
-    console.log(MappedCategory)
-  }
-
   useEffect(() => {
-    getDataAndCollectionFromFireBasE();
+    uploadDataCollections('species', 'EquipmentType', DentalProduct)
   }, [])
+
+  // const getDataAndCollectionFromFireBasE = async () => {
+  //   const MappedCategory = await getDataAndCollectionFromFireBase();
+  //   console.log(MappedCategory)
+  // }
+
+  // useEffect(() => {
+  //   getDataAndCollectionFromFireBasE();
+  // }, [])
 
   return <ProductContext.Provider value={value}>{children}</ProductContext.Provider>
 }
