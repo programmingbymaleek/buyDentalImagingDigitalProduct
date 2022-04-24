@@ -93,11 +93,12 @@ export const onAuthStateChangeListener = (callBackFunc) => {
 
 //writing to a brand new collecction to store our data..
 
-export const uploadDataCollections = async (dataCollectionKey, title, ObjectsToAdd) => {
+export const uploadDataCollections = async (dataCollectionKey, ObjectsToAdd) => {
   const ReferenceToCollectionData = collection(db, dataCollectionKey);
-  const batchTransaction = writeBatch(db);
+  const batchTransaction = writeBatch(db);//returns a batch and pass the database to it.. 
   ObjectsToAdd.forEach((object) => {
-    const documentReference = doc(ReferenceToCollectionData, object[title].toLowerCase());
+    //getting document refrence first... 
+    const documentReference = doc(ReferenceToCollectionData, object.EquipmentType.toLowerCase());
     batchTransaction.set(documentReference, object)
   })
   await batchTransaction.commit();
@@ -110,11 +111,14 @@ export const uploadDataCollections = async (dataCollectionKey, title, ObjectsToA
 export const getDataAndCollectionFromFireBase = async () => {
   const ReferenceToCollectionData = collection(db, 'species');
   const querY = query(ReferenceToCollectionData);
+
+
+
   const querYSnapshot = await getDocs(querY);
   const MappedCategory = querYSnapshot.docs.reduce((accumulator, documentSnapShot) => {
     const { EquipmentType, items } = documentSnapShot.data();
-    accumulator[EquipmentType.toLowerCase] = items;
-    console.log(accumulator)
+    accumulator[EquipmentType.toLowerCase()] = items;
+    return accumulator;
   }, {})
   return MappedCategory;
 }
