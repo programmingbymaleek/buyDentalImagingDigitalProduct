@@ -59,13 +59,13 @@ const Shop = () => {
 
   return (
     <Fragment>
+      <div className='search_box_conatiner'>
+        <SearchBox type="search" placeholder={'search for an item'} onChange={deviceSearch} />
+      </div>
       {Object.keys(filteredDevices).map((title) => (
         <Fragment key={title}>
           <h2>{title}</h2>
           <div className='products-container'>
-            <div className='search_box_conatiner'>
-              <SearchBox type="search" placeholder={'search for an item'} onChange={deviceSearch} />
-            </div>
             <div>
               {isPending && <p style={{ color: 'red' }}>Updating List please wait...</p>}
             </div>
