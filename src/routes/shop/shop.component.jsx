@@ -12,19 +12,6 @@ const Shop = () => {
 
   const [isPending, startTransition] = useTransition()
 
-  // console.log(Object.values(MappedCategories))
-  // const k = Object.values(MappedCategories).map((el) => {
-  //   return el.map((el) => {
-  //     console.log(el.name)
-  //   });
-  // })
-
-  // // k.map((e) => {
-  // //   return e.map((el) => {
-  // //     console.log(el.name)
-  // //   })
-  // // })
-
   const deviceSearch = (e) => {
     startTransition(() => {
       setsearchField(`${e.target.value.toLocaleLowerCase()}`)
@@ -37,23 +24,11 @@ const Shop = () => {
         return (item.name.toLocaleLowerCase().includes(searchField))
       })
     })
-
-
-
-
-
-
     setFilteredDevices(newfilteredDevices)
   }, [searchField, MappedCategories])
 
 
-  const obj = {
-    prop1: 'val1',
-    prop2: 'val2'
-  };
 
-  const result = Object.keys(obj).map((key) => [key, obj[key]]);
-  console.log(result);
 
 
 
