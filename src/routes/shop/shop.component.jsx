@@ -2,6 +2,7 @@ import { useContext, useState, useEffect, useTransition, Fragment } from 'react'
 import { CategoriesContext } from '../../context.apis/categories_context/categories_context';
 import ProductCardDirectory from '../../components/product_card/product_card_component';
 import SearchBox from '../../components/seaarchbox/searchbox.component';
+import CategoryAdvert from '../../components/category_advert/category_advert.componet';
 
 
 import './shop.styles.scss'
@@ -30,33 +31,16 @@ const Shop = () => {
   //   setFilteredDevices(newfilteredDevices)
   // }, [searchField, MappedCategories])
 
-
-
   return (
-    <Fragment>
+    <div className='shop-container'>
       {/* <div className='search_box_conatiner'>
         <SearchBox type="search" placeholder={'search for an item'} onChange={deviceSearch} />
       </div> */}
-      {Object.keys(MappedCategories).map((title) => (
-        <Fragment key={title}>
-          <h2>{title.toUpperCase()}</h2>
-          <div className='products-container'>
-            {/* <div>
-              {isPending && <p style={{ color: 'red' }}>Updating List please wait...</p>}
-            </div> */}
-            {MappedCategories[title].map((product) => {
-              return (<div className='devices' key={product.id}>
-                <ProductCardDirectory product={product} />
-              </div>)
-            })}
-          </div>
-        </Fragment>
-
-      ))}
-      <div>
-
-      </div>
-    </Fragment>
+      {Object.keys(MappedCategories).map((title) => {
+        const product = MappedCategories[title];
+        return <CategoryAdvert key={title} title={title} product={product} />
+      })}
+    </div>
 
   )
 
