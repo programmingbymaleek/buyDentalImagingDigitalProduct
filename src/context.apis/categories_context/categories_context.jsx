@@ -11,9 +11,6 @@ export const CategoriesProvider = ({ children }) => {
   const [MappedCategories, setMappedCategories] = useState({})
   const value = { MappedCategories }
 
-  // useEffect(() => {
-  //   uploadDataCollections('species', DentalProduct)
-  // }, [])
 
   const getDataAndCollectionFromFireBasE = async () => {
     const MappedCategory = await getDataAndCollectionFromFireBase();

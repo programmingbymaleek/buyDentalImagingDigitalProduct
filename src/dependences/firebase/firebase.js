@@ -91,7 +91,11 @@ export const onAuthStateChangeListener = (callBackFunc) => {
   return onAuthStateChanged(auth, callBackFunc)
 }
 
-//writing to a brand new collecction to store our data..
+
+
+
+
+//writing to a brand new collection to store our data..
 
 export const uploadDataCollections = async (dataCollectionKey, ObjectsToAdd) => {
   const ReferenceToCollectionData = collection(db, dataCollectionKey);
@@ -106,13 +110,16 @@ export const uploadDataCollections = async (dataCollectionKey, ObjectsToAdd) => 
 }
 
 
+
+
+
 //fetching data from firebase..
 
 export const getDataAndCollectionFromFireBase = async () => {
   const ReferenceToCollectionData = collection(db, 'species');
+  //import query and getDocs from firbase/firestore and guilding against firestore 
   const querY = query(ReferenceToCollectionData);
-
-
+  // this create an object we can get a sapshot from 
 
   const querYSnapshot = await getDocs(querY);
   const MappedCategory = querYSnapshot.docs.reduce((accumulator, documentSnapShot) => {
