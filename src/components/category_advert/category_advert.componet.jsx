@@ -1,13 +1,14 @@
 import './category_adverts.styles.scss'
 import ProductCardDirectory from '../../components/product_card/product_card_component';
+import { Link } from 'react-router-dom'
 
 const CategoryAdvert = ({ title, product }) => {
   return (
     <div className='category-advert-container'>
       <h2>
-        <span className='title'>
+        <Link className='title' to={title}>
           {title.toUpperCase()}
-        </span>
+        </Link>
       </h2>
       <div className='advert'>
         {

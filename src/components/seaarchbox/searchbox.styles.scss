@@ -1,6 +1,12 @@
+.search_container{
+  display: flex;
+  width: 100%;
+justify-content: center;
+}
+
 .search_input_field{
-  width:15em; 
-  height: 2.5em;
+  width:20em; 
+  height: 1.5em;
   border-radius: 1em;
   border-color: #A0BBDD;
   font-size: larger;
@@ -9,6 +15,7 @@
   outline: none;
   padding: 1em;
   line-height: 2em;
+  margin-bottom: 1em;
   
 }
 .search_input_field:hover{
@@ -18,4 +25,5 @@
 
 .search_input_field:hover::placeholder{
   color: white;
+  text-align: center;
 }
