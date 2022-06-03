@@ -1,4 +1,5 @@
-import { Fragment } from "react"
+import { Fragment } from "react";
+import C_Logo from '../../logo.png'
 import { Outlet, Link } from "react-router-dom"
 import { useContext } from 'react'
 import { Usercontext } from "../../contextapi/context";
@@ -17,7 +18,7 @@ const Navbar = () => {
   }
   return (<Fragment>
     <div className="navigation">
-      <Link className="logo" to='/buyDentalImagingDigitalProduct'> <h2>WilMatech Enterprise</h2></Link>
+      <Link className="logo" to='/buyDentalImagingDigitalProduct'> <img className="C-logo" src={C_Logo} /></Link>
       <div className="nav-links-container">
         <Link className="nav-link" to='shop'>
           SHOP
